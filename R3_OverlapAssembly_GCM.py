@@ -1,3 +1,6 @@
+#Problem 3 - Assembly as Shortest Super String 
+#Guillermo Carrillo Martín - MSc Bioinformatics 25/12/2022 - Python 3.9.12
+
 import re
 import os
 
@@ -9,8 +12,8 @@ def fasta_no_jump(imput, out):
     fasta_file = open(imput, "rt")
     output = open(out, "wt")
 
-    lin = fasta_file.readline()
-    output.write(lin)
+    first_line = fasta_file.readline()
+    output.write(first_line)
 
     for line in fasta_file:
         match = re.search(r"^>",line)
@@ -56,7 +59,7 @@ def max_overlap(seq1, seq2):
 
     return overlap_bp
 
-#Calculate the overlapping graph as an Array in the way (seq1 seq2 overlap bp)
+#Calculate the overlapping graph as an Array in the way (seq1, seq2, overlap bp)
 def overlap_graph_generator(seql, tagl):
     overlap_graph_list = []
 

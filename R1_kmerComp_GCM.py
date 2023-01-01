@@ -1,3 +1,6 @@
+#Problem 1 - k-Mer Composition
+#Guillermo Carrillo Martín - MSc Bioinformatics 22/12/2022 - Python 3.9.12
+
 import re
 import os
 
