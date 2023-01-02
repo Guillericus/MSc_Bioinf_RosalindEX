@@ -1,8 +1,7 @@
 #Problem 5 - Genome Assembly with Perfect Coverage
 #Guillermo Carrillo Martín - MSc Bioinformatics 01/01/2023 - Python 3.9.12
 
-
-file = "./R5_testSC.txt"
+file = "./R5_test.txt"
 
 ##1.Create a list with the sequences
 input = open(file, "rt")
@@ -38,18 +37,12 @@ for n in range(0,len(debruijn_graph)-1): #For a number of iterations equal to th
 
 
 ##4.Solving the DeBruijn graph into the cyclic superstring
-#Now, 
-cyclic_superstring = debruijn_sorted[0][0] + debruijn_sorted[0][1][-1]
+cyclic_superstring = ""
 
-for record in debruijn_sorted[1:len(debruijn_sorted)]: #For each missing record...
-    cyclic_superstring += record[1][-1] #Add the last base to the string
-
-
-#Eliminate last k-1 bases because of the 
-kmer_len = len(seq_list[0]) #The length of the first kmer (all kmers have the same lenth)
-def_cyclic_superstring = cyclic_superstring[0:-kmer_len+1]
+for record in debruijn_sorted: #For each record...
+    cyclic_superstring += record[0][0] #Add the first base of the k-mer to the string
 
 #Write the output in a file
 out = open("./R5_output.txt", "wt")
-out.write(def_cyclic_superstring)
+out.write(cyclic_superstring)
 out.close()
